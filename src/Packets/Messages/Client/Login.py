@@ -7,6 +7,7 @@ from Logic.Player import Players
 from Packets.Messages.Server.LoginOk import LoginOk
 from Packets.Messages.Server.OwnHomeData import OwnHomeData
 from Packets.Messages.Server.ClubInfoMessage import ClubInfoMessage
+from Packets.Messages.Server.LoginFailed import LoginFailed
 from Utils.reader import CoCMessageReader
 from database.player import DataBase
 from Utils.Helpers import Helpers
@@ -27,7 +28,9 @@ class Login(CoCMessageReader):
         self.build = self.read_int()
 
     def process(self):
-        if self.player.LowID != 0:
+        if self.major != 15 and self.minor != 140:
+            LoginFailed(self.client, self.player).send()
+        elif self.player.LowID != 0:
             LoginOk(self.client, self.player).send()
             OwnHomeData(self.client, self.player).send()
             ClubInfoMessage(self.client, self.player).send()
