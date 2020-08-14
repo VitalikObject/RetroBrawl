@@ -12,3 +12,4 @@ class GameroomData(Writer):
         self.writeHexa('''01000a0000000000000001b8d9ccc50b0000000f07010100006c7da80e8bad''')
         self.writeString("Mr Vitalik")
         self.writeHexa('''03100000070702030000000000''')
+        print("Message GameroomData has been sent.")

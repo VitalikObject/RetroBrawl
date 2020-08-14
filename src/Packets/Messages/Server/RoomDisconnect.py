@@ -10,3 +10,4 @@ class RoomDisconnect(Writer):
 
     def encode(self):
         self.writeHexa('''00000000''')
+        print("Message RoomDisconnect has been sent.")
