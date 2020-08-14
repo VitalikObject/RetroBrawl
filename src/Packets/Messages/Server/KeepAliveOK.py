@@ -9,4 +9,4 @@ class KeepAliveOk(Writer):
         self.player = player
 
     def encode(self):
-        print("Message KeepAliveOk has been sent.")
+        print("[INFO] Message KeepAliveOk has been sent.")

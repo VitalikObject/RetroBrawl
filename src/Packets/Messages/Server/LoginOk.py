@@ -41,4 +41,4 @@ class LoginOk(Writer):
         self.writeVint(0)
         self.writeString()
         self.writeVint(1)
-        print("Message LoginOk has been sent.")
+        print("[INFO] Message LoginOk has been sent.")

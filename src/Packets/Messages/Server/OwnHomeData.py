@@ -59,4 +59,4 @@ class OwnHomeData(Writer):
         self.writeVint(0)
         self.writeVint(2)
         self.writeVint(1550832808)
-        print("Message OwnHomeData has been sent.")
+        print("[INFO] Message OwnHomeData has been sent.")
