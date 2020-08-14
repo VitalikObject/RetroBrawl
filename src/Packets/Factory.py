@@ -4,6 +4,8 @@ from Packets.Messages.Client.CreateGameroom import CreateGameroom
 from Packets.Messages.Client.Exit import Exit
 from Packets.Messages.Client.QuitRoom import QuitRoom
 from Packets.Messages.Client.AskProfile import AskProfile
+from Packets.Messages.Client.OpenClubMessage import OpenClubMessage
+from Packets.Messages.Client.ChangeMap import ChangeMap
 from Packets.CommandFactory import Commands
 
 packets = {
@@ -12,6 +14,8 @@ packets = {
     14102: Commands,
     14109: Exit,
     14113: AskProfile,
+    14303: OpenClubMessage,
     14350: CreateGameroom,
-    14353: QuitRoom
+    14353: QuitRoom,
+    14363: ChangeMap
 }
