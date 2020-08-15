@@ -3,7 +3,6 @@ class Players:
 	HighID = 0
 	LowID = 0
 	Token = None
-	commandID = 0
 	boxID = 0
 	mapID = 7
 
