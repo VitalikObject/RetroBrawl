@@ -6,11 +6,13 @@ from Packets.Messages.Client.QuitRoom import QuitRoom
 from Packets.Messages.Client.AskProfile import AskProfile
 from Packets.Messages.Client.OpenClubMessage import OpenClubMessage
 from Packets.Messages.Client.ChangeMap import ChangeMap
+from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
 from Packets.CommandFactory import Commands
 
 packets = {
     10101: Login,
     10108: KeepAlive,
+    10110: AnalyticsEvent,
     14102: Commands,
     14109: Exit,
     14113: AskProfile,
