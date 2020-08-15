@@ -20,5 +20,4 @@ class Exit(BSMessageReader):
         pass
 
     def process(self):
-        self.player.roomID = 0
         OwnHomeData(self.client, self.player).send()

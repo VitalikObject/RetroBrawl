@@ -20,4 +20,5 @@ class QuitRoom(BSMessageReader):
         pass
 
     def process(self):
+        self.player.roomID = 0
         RoomDisconnect(self.client, self.player).send()
