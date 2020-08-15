@@ -1,7 +1,7 @@
-from Utils.reader import CoCMessageReader
+from Utils.Reader import BSMessageReader
 from Packets.Messages.Server.ServerBox  import ServerBox
 
-class Commands(CoCMessageReader):
+class Commands(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.client = client
@@ -10,7 +10,6 @@ class Commands(CoCMessageReader):
     def decode(self):
         self.read_Vint()
         self.read_Vint()
-        #print(Reader.read(50))
         self.read_Vint()
         self.read_Vint()
         self.player.commandID = self.read_Vint()
