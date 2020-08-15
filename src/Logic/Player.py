@@ -5,6 +5,7 @@ class Players:
 	Token = None
 	commandID = 0
 	boxID = 0
+	mapID = 7
 
 	def __init__(self, device):
 		self.device = device
