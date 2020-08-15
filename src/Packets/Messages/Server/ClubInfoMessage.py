@@ -9,7 +9,19 @@ class ClubInfoMessage(Writer):
         self.player = player
 
     def encode(self):    
-        self.writeHexa('''01011902000000000000029a''')
+        self.writeVint(1)
+        self.writeVint(1)
+        self.writeVint(25)
+        self.writeVint(2)
+        self.writeInt(0)
+        self.writeInt(521)
         self.writeString("Brawl Private Server")
-        self.writeHexa('''080003018f9c01000000000002555300''')
+        self.writeVint(8)
+        self.writeVint(0)
+        self.writeVint(3)
+        self.writeVint(1)
+        self.writeVint(9999)
+        self.writeInt(0)
+        self.writeInt(152915)
+        self.writeVint(0)
         print("[INFO] Message ClubInfoMessage has been sent.")
