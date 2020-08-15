@@ -1,7 +1,7 @@
 from Utils.Reader import BSMessageReader
 from Packets.Messages.Server.ServerBox  import ServerBox
 
-class Commands(BSMessageReader):
+class EndClientTurn(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.client = client
@@ -23,3 +23,5 @@ class Commands(BSMessageReader):
             self.player.boxID = self.read_Vint()
             print("Command ID", self.commandID, "has been handled")
             ServerBox(self.client, self.player).send()
+        elif self.commandID >= 0: 
+            print("Command ID", self.commandID, "don\'t handled!")
