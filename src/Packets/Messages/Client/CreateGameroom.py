@@ -5,11 +5,11 @@ import json
 from Logic.Player import Players
 from Packets.Messages.Server.GameroomData import GameroomData
 
-from Utils.reader import CoCMessageReader
+from Utils.Reader import BSMessageReader
 from database.player import DataBase
 
 
-class CreateGameroom(CoCMessageReader):
+class CreateGameroom(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.player = player

@@ -8,11 +8,11 @@ from Packets.Messages.Server.LoginOk import LoginOk
 from Packets.Messages.Server.OwnHomeData import OwnHomeData
 from Packets.Messages.Server.ClubInfoMessage import ClubInfoMessage
 from Packets.Messages.Server.LoginFailed import LoginFailed
-from Utils.reader import CoCMessageReader
+from Utils.Reader import BSMessageReader
 from database.player import DataBase
 from Utils.Helpers import Helpers
 
-class Login(CoCMessageReader):
+class Login(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.player = player
