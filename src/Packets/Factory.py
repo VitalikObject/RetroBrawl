@@ -1,3 +1,4 @@
+from Packets.Messages.Client.ClientHello import ClientHello
 from Packets.Messages.Client.Login import Login
 from Packets.Messages.Client.KeepAlive import KeepAlive
 from Packets.Messages.Client.CreateGameroom import CreateGameroom
@@ -10,6 +11,7 @@ from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
 from Packets.CommandFactory import Commands
 
 packets = {
+    10100: ClientHello,
     10101: Login,
     10108: KeepAlive,
     10110: AnalyticsEvent,
