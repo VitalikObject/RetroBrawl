@@ -12,6 +12,6 @@ class GameroomData(Writer):
         self.writeHexa('''01000a0000000000000001b8d9ccc50b0000000f''')
         self.writeVint(self.player.mapID)
         self.writeHexa('''010100006c7da80e8bad''')
-        self.writeString("Mr Vitalik")
+        self.writeString("<c3>Mr Vitalik</c>")
         self.writeHexa('''03100000070702030000000000''')
         print("[INFO] Message GameroomData has been sent.")
