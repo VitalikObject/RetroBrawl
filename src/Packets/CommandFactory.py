@@ -12,14 +12,14 @@ class Commands(BSMessageReader):
         self.read_Vint()
         self.read_Vint()
         self.read_Vint()
-        self.player.commandID = self.read_Vint()
+        self.commandID = self.read_Vint()
 
     def process(self):
-        if self.player.commandID == 500:
+        if self.commandID == 500:
             self.read_Vint()
             self.read_Vint()
             self.read_Vint()
             self.read_Vint()
             self.player.boxID = self.read_Vint()
-            print("Command ID", self.player.commandID, "has been handled")
+            print("Command ID", self.commandID, "has been handled")
             ServerBox(self.client, self.player).send()
