@@ -31,7 +31,11 @@ class OwnHomeData(Writer):
         self.writeVint(8)
         self.writeVint(9)
         self.writeVint(10)
-        self.writeVint(0)
+
+        self.writeVint(1)
+        self.writeVint(29)
+        self.writeVint(self.player.skinID)
+
         self.writeVint(144)
         self.writeVint(29)
         self.writeVint(0)
