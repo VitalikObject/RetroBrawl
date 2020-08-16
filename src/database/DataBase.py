@@ -20,7 +20,6 @@ class DataBase:
                     self.player.skinID = dict[str(self.player.Token)]['skinID']
 
     def createAccount(self):
-        self.player.name = Helpers.randomName(self)
         data = {
             self.player.Token: {
 
