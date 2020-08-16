@@ -6,6 +6,7 @@ from Logic.Player import Players
 from Packets.Messages.Server.GameroomData import GameroomData
 
 from Utils.Reader import BSMessageReader
+from database.player import DataBase
 
 
 class CreateGameroom(BSMessageReader):
@@ -13,6 +14,7 @@ class CreateGameroom(BSMessageReader):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
+        self.db = DataBase()
 
     def decode(self):
         self.read_Vint()

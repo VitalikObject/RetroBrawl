@@ -1,5 +1,6 @@
 from Utils.Writer import Writer
 import random
+from database.DataBase import DataBase
 
 class ServerBox(Writer):
 
@@ -16,14 +17,29 @@ class ServerBox(Writer):
             self.writeVint(1)
             self.writeVint(10)
             self.writeVint(2)
-            self.writeVint(random.randrange(1, 1000))
+            GoldValue = random.randrange(1, 1000)
+            self.writeVint(GoldValue)
+
+            newGold = self.player.gold + GoldValue
+            DataBase.replaceValue(self, 'gold', newGold)
+
             self.writeVint(0)
             self.writeVint(7)
             self.writeVint(0)
             self.writeVint(0)
-            self.writeVint(random.randrange(1, 20))
+            value = random.randrange(1, 20)
+            self.writeVint(value)
             self.writeVint(0)
-            self.writeVint(random.choice(reward_list))
+            reward = random.choice(reward_list)
+            self.writeVint(reward)
+
+            if reward == 8:
+                newGems = self.player.gems + value
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif reward == 3:
+                newTickets = self.player.tickets + value
+                DataBase.replaceValue(self, 'tickets', newTickets)     
+
             self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)
@@ -38,14 +54,29 @@ class ServerBox(Writer):
             self.writeVint(1)
             self.writeVint(12)
             self.writeVint(2)
-            self.writeVint(random.randrange(1, 2500))
+            GoldValue = random.randrange(1, 2500)
+            self.writeVint(GoldValue)
+
+            newGold = self.player.gold + GoldValue
+            DataBase.replaceValue(self, 'gold', newGold)
+
             self.writeVint(0)
             self.writeVint(7)
             self.writeVint(0)
             self.writeVint(0)
-            self.writeVint(random.randrange(1, 50))
+            value = random.randrange(1, 50)
+            self.writeVint(value)
             self.writeVint(0)
-            self.writeVint(random.choice(reward_list))
+            reward = random.choice(reward_list)
+            self.writeVint(reward)
+
+            if reward == 8:
+                newGems = self.player.gems + value
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif reward == 3:
+                newTickets = self.player.tickets + value
+                DataBase.replaceValue(self, 'tickets', newTickets)
+
             self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)
@@ -60,14 +91,30 @@ class ServerBox(Writer):
             self.writeVint(1)
             self.writeVint(11)
             self.writeVint(2)
-            self.writeVint(random.randrange(1, 5000))
+
+            GoldValue = random.randrange(1, 5000)
+            self.writeVint(GoldValue)
+
+            newGold = self.player.gold + GoldValue
+            DataBase.replaceValue(self, 'gold', newGold)
+
             self.writeVint(0)
             self.writeVint(7)
             self.writeVint(0)
             self.writeVint(0)
-            self.writeVint(random.randrange(1, 100))
+            value = random.randrange(1, 100)
+            self.writeVint(value)
             self.writeVint(0)
-            self.writeVint(random.choice(reward_list))
+            reward = random.choice(reward_list)
+            self.writeVint(reward)
+
+            if reward == 8:
+                newGems = self.player.gems + value
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif reward == 3:
+                newTickets = self.player.tickets + value
+                DataBase.replaceValue(self, 'tickets', newTickets)
+
             self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)
@@ -82,14 +129,30 @@ class ServerBox(Writer):
             self.writeVint(1)
             self.writeVint(12)
             self.writeVint(2)
-            self.writeVint(random.randrange(1, 2500))
+
+            GoldValue = random.randrange(1, 2500)
+            self.writeVint(GoldValue)
+
+            newGold = self.player.gold + GoldValue
+            DataBase.replaceValue(self, 'gold', newGold)
+
             self.writeVint(0)
             self.writeVint(7)
             self.writeVint(0)
             self.writeVint(0)
-            self.writeVint(random.randrange(1, 50))
+            value = random.randrange(1, 50)
+            self.writeVint(value)
             self.writeVint(0)
-            self.writeVint(random.choice(reward_list))
+            reward = random.choice(reward_list)
+            self.writeVint(reward)
+
+            if reward == 8:
+                newGems = self.player.gems + value
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif reward == 3:
+                newTickets = self.player.tickets + value
+                DataBase.replaceValue(self, 'tickets', newTickets)
+
             self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)

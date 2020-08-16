@@ -9,6 +9,7 @@ from Packets.Messages.Server.OwnHomeData import OwnHomeData
 from Packets.Messages.Server.ClubInfoMessage import ClubInfoMessage
 from Packets.Messages.Server.LoginFailed import LoginFailed
 from Utils.Reader import BSMessageReader
+from database.player import DataBase
 from Utils.Helpers import Helpers
 from database.DataBase import DataBase
 
@@ -17,6 +18,7 @@ class Login(BSMessageReader):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
+        self.db = DataBase()
 
     def decode(self):
         self.player.HighID = self.read_int()

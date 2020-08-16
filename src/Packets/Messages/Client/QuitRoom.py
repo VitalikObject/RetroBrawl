@@ -6,6 +6,7 @@ from Logic.Player import Players
 from Packets.Messages.Server.RoomDisconnect import RoomDisconnect
 
 from Utils.Reader import BSMessageReader
+from database.player import DataBase
 
 
 class QuitRoom(BSMessageReader):
@@ -13,6 +14,7 @@ class QuitRoom(BSMessageReader):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
+        self.db = DataBase()
 
     def decode(self):
         pass

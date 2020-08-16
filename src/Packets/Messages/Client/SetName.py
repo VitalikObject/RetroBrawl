@@ -14,6 +14,7 @@ class SetName(BSMessageReader):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
+        self.db = DataBase()
 
     def decode(self):
         self.player.name = self.read_string()

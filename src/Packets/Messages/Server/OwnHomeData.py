@@ -341,7 +341,7 @@ class OwnHomeData(Writer):
         self.writeVint(2)
         self.writeVint(1140)
         self.writeVint(0)
-        self.writeVint(99999) #Tickets
+        self.writeVint(self.player.tickets) #Tickets
         self.writeVint(-21)
 
         self.writeVint(16)
@@ -554,7 +554,7 @@ class OwnHomeData(Writer):
         self.writeVint(0)
         self.writeVint(0)
         if self.player.name is None:
-            self.writeString("NoNameYet") # player name
+            self.writeString("Guest") # player name
             self.writeVint(0)
         else:
             self.writeString(self.player.name) # player name
@@ -635,7 +635,7 @@ class OwnHomeData(Writer):
         self.writeVint(99999) #Brawl Box tokens
         self.writeVint(5)
         self.writeVint(8)
-        self.writeVint(99999) #Gold
+        self.writeVint(self.player.gold) #Gold
         self.writeVint(5)
         self.writeVint(9)
         self.writeVint(99999) #Big Box tokens
@@ -998,7 +998,7 @@ class OwnHomeData(Writer):
         self.writeVint(2)
 
         self.writeVint(0)
-        self.writeVint(99999) #gems
+        self.writeVint(self.player.gems) #gems
         self.writeVint(0)
         self.writeVint(99)
         self.writeVint(0)
