@@ -5,7 +5,6 @@ import json
 from Logic.Player import Players
 
 from Utils.Reader import BSMessageReader
-from database.player import DataBase
 
 
 class AnalyticsEvent(BSMessageReader):
@@ -13,7 +12,6 @@ class AnalyticsEvent(BSMessageReader):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
-        self.db = DataBase()
 
     def decode(self):
         self.Type = self.read_string()
