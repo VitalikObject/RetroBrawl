@@ -40,7 +40,6 @@ class Login(BSMessageReader):
             self.player.LowID = 1
             self.player.HighID = 0
             self.player.Token = Helpers.randomStringDigits(self)
-            DataBase.createAccount(self) # create new account
             LoginOk(self.client, self.player).send()
             OwnHomeData(self.client, self.player).send()
             ClubInfoMessage(self.client, self.player).send()
