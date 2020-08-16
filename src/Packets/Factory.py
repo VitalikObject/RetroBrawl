@@ -8,6 +8,7 @@ from Packets.Messages.Client.AskProfile import AskProfile
 from Packets.Messages.Client.OpenClubMessage import OpenClubMessage
 from Packets.Messages.Client.ChangeMap import ChangeMap
 from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
+from Packets.Messages.Client.BattleEnd import BattleEnd
 from Packets.CommandFactory import EndClientTurn
 
 packets = {
@@ -17,6 +18,7 @@ packets = {
     10110: AnalyticsEvent,
     14102: EndClientTurn,
     14109: Exit,
+    14110: BattleEnd,
     14113: AskProfile,
     14303: OpenClubMessage,
     14350: CreateGameroom,
