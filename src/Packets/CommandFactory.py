@@ -29,7 +29,7 @@ class EndClientTurn(BSMessageReader):
             self.read_Vint()
             self.read_Vint()
             self.read_Vint()
-            self.read_Vint()
+            self.player.skinID = self.read_Vint()
             self.read_Vint()
             self.read_Vint()
             self.read_Vint()
