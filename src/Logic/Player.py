@@ -8,6 +8,9 @@ class Players:
 	roomID = 0
 	brawlerID = 0
 	skinID = 0
+	gems = 99999
+	gold = 99999
+	tickets = 99999
 
 	def __init__(self, device):
 		self.device = device

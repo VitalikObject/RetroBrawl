@@ -12,7 +12,12 @@ class DataBase:
                 dict = json.loads(json.dumps(json_data))  # loading and dumping json data from file
 
                 if self.player.Token in dict:
-                    self.player.name = dict[str(self.player.Token)]['name']  # loading player name from existing account
+                    self.player.name = dict[str(self.player.Token)]['name']
+                    self.player.gems = dict[str(self.player.Token)]['gems']
+                    self.player.gold = dict[str(self.player.Token)]['gold']
+                    self.player.tickets = dict[str(self.player.Token)]['tickets']
+                    self.player.brawlerID = dict[str(self.player.Token)]['brawlerID']
+                    self.player.skinID = dict[str(self.player.Token)]['skinID']
 
     def createAccount(self):
         self.player.name = Helpers.randomName(self)
@@ -22,6 +27,7 @@ class DataBase:
                 "name": self.player.name,
                 "gems": 99999,
                 "gold": 99999,
+                "tickets": 99999,
                 "brawlerID": 0,
                 "skinID":0
             }

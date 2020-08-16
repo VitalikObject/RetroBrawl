@@ -1,3 +1,1 @@
-{"g0xQKTTJdo5XvQjAuRI9tLd6Lqh1NGMK4JJwvh8c": {"name": "PhoenixDev"}}
-{"KoJJPJkybeQLrO0Sm7U3zsb1vygd0DCpgcHbjtLj": {"name": "fShUi"}}
-{"IKXQUfIqVufuWDL2nY0b3VD2p19ykiQsjw7ptCo2": {"name": "E3Thu"}}
+{"ahTQJ7ya1L4L0zgFhRUk7R9UlYjqntH6GamajEpP": {"name": "lQ8lN", "gems": 99999, "gold": 99999, "tickets": 99999, "brawlerID": 0, "skinID": 0}}
