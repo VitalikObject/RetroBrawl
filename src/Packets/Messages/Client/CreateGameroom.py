@@ -17,7 +17,22 @@ class CreateGameroom(BSMessageReader):
         self.db = DataBase()
 
     def decode(self):
-        pass
+        self.read_Vint()
+        self.mapID = self.read_Vint()
 
     def process(self):
+        if self.mapID == 1:
+            self.player.mapID = 7
+        elif self.mapID == 2:
+            self.player.mapID = 13
+        elif self.mapID == 3:
+            self.player.mapID = 1
+        elif self.mapID == 4:
+            self.player.mapID = 24
+        elif self.mapID == 5:
+            self.player.mapID = 34
+        elif self.mapID == 6:
+            self.player.mapID = 58
+        elif self.mapID == 7:
+        	self.player.mapID = 53
         GameroomData(self.client, self.player).send()
