@@ -11,6 +11,7 @@ class Players:
 	gems = 99999
 	gold = 99999
 	tickets = 99999
+	name = None
 
 	def __init__(self, device):
 		self.device = device
