@@ -9,6 +9,7 @@ from Packets.Messages.Client.OpenClubMessage import OpenClubMessage
 from Packets.Messages.Client.ChangeMap import ChangeMap
 from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
 from Packets.Messages.Client.BattleEnd import BattleEnd
+from Packets.Messages.Client.SetName import SetName
 from Packets.CommandFactory import EndClientTurn
 
 packets = {
@@ -16,6 +17,7 @@ packets = {
     10101: Login,
     10108: KeepAlive,
     10110: AnalyticsEvent,
+    10212: SetName,
     14102: EndClientTurn,
     14109: Exit,
     14110: BattleEnd,
