@@ -15,7 +15,7 @@ class BattleResult(Writer):
         self.writeVint(0)
         self.writeVint(0)
         self.writeInt(8193)
-        self.writeString("<cff3200>M<cff6500>r<cff9800> <cffcb00>V<cffff00>i<cccff00>t<c99ff00>a<c66ff00>l<c33ff00>i<c01ff00>k</c>")
+        self.writeString(self.player.name)
         self.writeVint(1)
         self.writeVint(16)
         self.writeVint(self.player.brawlerID)
