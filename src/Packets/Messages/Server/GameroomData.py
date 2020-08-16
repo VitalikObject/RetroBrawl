@@ -31,7 +31,7 @@ class GameroomData(Writer):
         self.writeVint(1)
         self.writeInt(27773)
         self.writeInt(2819525549)
-        self.writeString("<cff3200>M<cff6500>r<cff9800> <cffcb00>V<cffff00>i<cccff00>t<c99ff00>a<c66ff00>l<c33ff00>i<c01ff00>k</c>")
+        self.writeString(self.player.name)
         self.writeVint(3)
         self.writeVint(16)
         self.writeVint(self.player.brawlerID)
