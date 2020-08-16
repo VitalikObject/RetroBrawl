@@ -553,8 +553,12 @@ class OwnHomeData(Writer):
         self.writeVint(0)
         self.writeVint(0)
         self.writeVint(0)
-        self.writeString(self.player.name) # player name
-        self.writeVint(1)
+        if self.player.name is None:
+            self.writeString("Guest") # player name
+            self.writeVint(0)
+        else:
+            self.writeString(self.player.name) # player name
+            self.writeVint(1)
         self.writeString()
         self.writeVint(8)
 
