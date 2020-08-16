@@ -553,7 +553,7 @@ class OwnHomeData(Writer):
         self.writeVint(0)
         self.writeVint(0)
         self.writeVint(0)
-        self.writeString("<cff3200>M<cff6500>r<cff9800> <cffcb00>V<cffff00>i<cccff00>t<c99ff00>a<c66ff00>l<c33ff00>i<c01ff00>k</c>")
+        self.writeString(self.player.name) # player name
         self.writeVint(1)
         self.writeString()
         self.writeVint(8)

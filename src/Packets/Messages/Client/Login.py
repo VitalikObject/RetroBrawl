@@ -11,6 +11,7 @@ from Packets.Messages.Server.LoginFailed import LoginFailed
 from Utils.Reader import BSMessageReader
 from database.player import DataBase
 from Utils.Helpers import Helpers
+from database.DataBase import DataBase
 
 class Login(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
@@ -32,12 +33,14 @@ class Login(BSMessageReader):
             LoginFailed(self.client, self.player).send()
         elif self.player.LowID != 0:
             LoginOk(self.client, self.player).send()
+            DataBase.loadAccount(self) # load account
             OwnHomeData(self.client, self.player).send()
             ClubInfoMessage(self.client, self.player).send()
         else:
             self.player.LowID = 1
             self.player.HighID = 0
-            self.player.Token = Helpers.randomStringDigits()
+            self.player.Token = Helpers.randomStringDigits(self)
+            DataBase.createAccount(self) # create new account
             LoginOk(self.client, self.player).send()
             OwnHomeData(self.client, self.player).send()
             ClubInfoMessage(self.client, self.player).send()

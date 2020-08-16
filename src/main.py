@@ -1,6 +1,7 @@
 import logging
 import socket
 import time
+import os
 from threading import *
 
 from Logic.Device import Device
@@ -24,6 +25,9 @@ class Server:
 		self.ip = ip
 
 	def start(self):
+		if not os.path.exists('./data.txt'):
+			os.mknod('./data.txt') # create database file if does not exist
+
 		self.server.bind((self.ip, self.port))
 		_(f'Server started! Ip: {self.ip}, Port: {self.port}')
 		while True:
