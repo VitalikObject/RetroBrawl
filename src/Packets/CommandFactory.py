@@ -48,6 +48,7 @@ class EndClientTurn(BSMessageReader):
             self.read_Vint()
             self.read_Vint()
             self.player.brawlerID = self.read_Vint()
+            DataBase.replaceValue(self, 'skinID', self.player.skinID)
             if self.player.brawlerID == 0:
                 DataBase.replaceValue(self, 'shellySkin', self.player.skinID)
             elif self.player.brawlerID == 1:
