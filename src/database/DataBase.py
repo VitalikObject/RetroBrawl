@@ -19,6 +19,7 @@ class DataBase:
                     self.player.tickets = dict[str(self.player.Token)]["tickets"]
                     self.player.brawlerID = dict[str(self.player.Token)]["brawlerID"]
                     self.player.skinID = dict[str(self.player.Token)]["skinID"]
+                    self.player.profileIcon = dict[str(self.player.Token)]["profileIcon"]
 
     def createAccount(self):
         data = {
@@ -29,7 +30,8 @@ class DataBase:
                 "gold": 99999,
                 "tickets": 99999,
                 "brawlerID": 0,
-                "skinID":0
+                "skinID": 0,
+                "profileIcon": 0
             }
         }
 
