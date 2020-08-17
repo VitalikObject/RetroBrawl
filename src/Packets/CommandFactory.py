@@ -1,6 +1,7 @@
 from Utils.Reader import BSMessageReader
 from Packets.Messages.Server.ServerBox  import ServerBox
 from Packets.Messages.Server.GameroomData  import GameroomData
+from database.DataBase import DataBase
 
 class EndClientTurn(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
@@ -38,6 +39,8 @@ class EndClientTurn(BSMessageReader):
             self.read_Vint()
             self.read_Vint()
             self.player.brawlerID = self.read_Vint()
+            DataBase.replaceValue(self, 'skinID', self.player.skinID)
+            DataBase.replaceValue(self, 'brawlerID', self.player.brawlerID)
             if(self.player.roomID != 0):
             	GameroomData(self.client, self.player).send()
             print("Command ID", self.commandID, "has been handled")
