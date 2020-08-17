@@ -12,6 +12,9 @@ class ServerBox(Writer):
     def encode(self):
         reward_list = [2 , 3 , 8]
         if self.player.boxID == 5:
+            newBrawlBox = self.player.brawlBoxes - 100
+            DataBase.replaceValue(self, 'brawlBoxes', newBrawlBox)
+
             self.writeVint(203)
             self.writeVint(0)
             self.writeVint(1)
@@ -49,6 +52,8 @@ class ServerBox(Writer):
             self.writeVint(0)
             self.writeVint(0)
         if self.player.boxID == 4:
+            newBigBox = self.player.bigBoxes - 10
+            DataBase.replaceValue(self, 'bigBoxes', newBigBox)
             self.writeVint(203)
             self.writeVint(0)
             self.writeVint(1)
