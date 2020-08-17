@@ -15,6 +15,28 @@ class Players:
 	profileIcon = 0
 	brawlBoxes = 99999
 	bigBoxes = 99999
+	shellySkin = 0
+	nitaSkin = 0
+	coltSkin = 0
+	bullSkin = 0
+	jessieSkin = 0
+	brockSkin = 0
+	dynamikeSkin = 0
+	boSkin = 0
+	elprimoSkin = 0
+	barleySkin = 0
+	pocoSkin = 0
+	ricoSkin = 0
+	darrylSkin = 0
+	pennySkin = 0
+	piperSkin = 0
+	pamSkin = 0
+	frankSkin = 0
+	mortisSkin = 0
+	taraSkin = 0
+	spikeSkin = 0
+	crowSkin = 0
+	leonSkin = 0
 
 	def __init__(self, device):
 		self.device = device
