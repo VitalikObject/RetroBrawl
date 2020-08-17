@@ -4,7 +4,6 @@ import json
 
 from Logic.Player import Players
 from Packets.Messages.Server.SetNameResponse import SetNameResponse
-from database.DataBase import DataBase
 
 from Utils.Reader import BSMessageReader
 
@@ -19,5 +18,4 @@ class SetName(BSMessageReader):
         self.player.name = self.read_string()
 
     def process(self):
-        DataBase.createAccount(self) # create new account
         SetNameResponse(self.client, self.player).send()

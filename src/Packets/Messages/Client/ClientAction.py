@@ -7,16 +7,15 @@ from Packets.Messages.Server.LoginFailed import LoginFailed
 
 from Utils.Reader import BSMessageReader
 
-class ClientHello(BSMessageReader):
+
+class ClientAction(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
 
     def decode(self):
-        pass
+        self.Type = self.read_Vint()
 
     def process(self):
-        self.player.errorID = 8 
-        self.player.errorText = "The server does not support your version"
-        LoginFailed(self.client, self.player).send()
+        if self.Type == 4:
