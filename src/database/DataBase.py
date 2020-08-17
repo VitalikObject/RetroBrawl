@@ -20,6 +20,8 @@ class DataBase:
                     self.player.brawlerID = dict[str(self.player.Token)]["brawlerID"]
                     self.player.skinID = dict[str(self.player.Token)]["skinID"]
                     self.player.profileIcon = dict[str(self.player.Token)]["profileIcon"]
+                    self.player.brawlBoxes = dict[str(self.player.Token)]["brawlBoxes"]
+                    self.player.bigBoxes = dict[str(self.player.Token)]["bigBoxes"]
 
     def createAccount(self):
         data = {
@@ -31,7 +33,9 @@ class DataBase:
                 "tickets": 99999,
                 "brawlerID": 0,
                 "skinID": 0,
-                "profileIcon": 0
+                "profileIcon": 0,
+                "brawlBoxes": 99999,
+                "bigBoxes": 99999
             }
         }
 
