@@ -10,11 +10,12 @@ class OwnHomeData(Writer):
         self.player = player
 
     def encode(self):
+        DataBase.loadAccount(self) # load account
         self.writeVint(2019053)
         self.writeVint(75980)
-        self.writeVint(99999)
+        self.writeVint(self.player.trophies)
 
-        self.writeVint(99999)
+        self.writeVint(self.player.trophies)
         self.writeVint(0)
         self.writeVint(99)
 
