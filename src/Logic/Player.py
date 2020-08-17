@@ -12,6 +12,7 @@ class Players:
 	gold = 99999
 	tickets = 99999
 	name = None
+	profileIcon = 0
 
 	def __init__(self, device):
 		self.device = device
