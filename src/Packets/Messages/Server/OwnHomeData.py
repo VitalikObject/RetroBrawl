@@ -19,7 +19,7 @@ class OwnHomeData(Writer):
 
         self.writeVint(99999)
         self.writeVint(28)
-        self.writeVint(0)
+        self.writeVint(self.player.profileIcon)
 
         self.writeVint(9)
         self.writeVint(0)
@@ -632,13 +632,13 @@ class OwnHomeData(Writer):
 
         self.writeVint(5)
         self.writeVint(1)
-        self.writeVint(99999) #Brawl Box tokens
+        self.writeVint(self.player.brawlBoxes) #Brawl Box tokens
         self.writeVint(5)
         self.writeVint(8)
         self.writeVint(self.player.gold) #Gold
         self.writeVint(5)
         self.writeVint(9)
-        self.writeVint(99999) #Big Box tokens
+        self.writeVint(self.player.bigBoxes) #Big Box tokens
 
         self.writeVint(23)
         self.writeVint(16)
