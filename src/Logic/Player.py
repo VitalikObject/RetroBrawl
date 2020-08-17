@@ -8,6 +8,7 @@ class Players:
 	roomID = 0
 	brawlerID = 0
 	skinID = 0
+	trophies = 99999
 	gems = 99999
 	gold = 99999
 	tickets = 99999
