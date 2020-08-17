@@ -57,25 +57,29 @@ class ClientThread(Thread):
 
 	def run(self):
 		last_packet = time.time()
-		while True:
-			header = self.client.recv(7)
-			if len(header) > 0:
-				last_packet = time.time()
-				packet_id = int.from_bytes(header[:2], 'big')
-				length = int.from_bytes(header[2:5], 'big')
-				data = self.recvall(length)
+		try:
+			while True:
+				header = self.client.recv(7)
+				if len(header) > 0:
+					last_packet = time.time()
+					packet_id = int.from_bytes(header[:2], 'big')
+					length = int.from_bytes(header[2:5], 'big')
+					data = self.recvall(length)
 
-				if packet_id in packets:
-					_(f'Received packet! Id: {packet_id}')
-					message = packets[packet_id](self.client, self.player, data)
-					message.decode()
-					message.process()
-				else:
-					_(f'Packet don\'t handled! Id: {packet_id}')
-			if time.time() - last_packet > 10:
-				print(f"[INFO] Ip: {self.address[0]} disconnected!")
-				self.client.close()
-				break
+					if packet_id in packets:
+						_(f'Received packet! Id: {packet_id}')
+						message = packets[packet_id](self.client, self.player, data)
+						message.decode()
+						message.process()
+					else:
+						_(f'Packet don\'t handled! Id: {packet_id}')
+				if time.time() - last_packet > 10:
+					print(f"[INFO] Ip: {self.address[0]} disconnected!")
+					self.client.close()
+					break
+		except ConnectionAbortedError:
+			print(f"[INFO] Ip: {self.address[0]} disconnected!")
+			self.client.close()
 
 
 if __name__ == '__main__':
