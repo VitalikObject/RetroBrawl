@@ -10,6 +10,7 @@ from Packets.Messages.Client.ChangeMap import ChangeMap
 from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
 from Packets.Messages.Client.BattleEnd import BattleEnd
 from Packets.Messages.Client.SetName import SetName
+from Packets.Messages.Client.ChangeName import ChangeName
 from Packets.CommandFactory import EndClientTurn
 
 packets = {
@@ -25,5 +26,6 @@ packets = {
     14303: OpenClubMessage,
     14350: CreateGameroom,
     14353: QuitRoom,
-    14363: ChangeMap
+    14363: ChangeMap,
+    14600: ChangeName
 }
