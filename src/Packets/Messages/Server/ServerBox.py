@@ -109,11 +109,16 @@ class ServerBox(Writer):
             self.writeVint(reward)
 
             if reward == 8:
-                newGems = self.player.gems + value
+                newGems = self.player.gems + value - 80
                 DataBase.replaceValue(self, 'gems', newGems)
             elif reward == 3:
                 newTickets = self.player.tickets + value
+                newGems = self.player.gems - 80
                 DataBase.replaceValue(self, 'tickets', newTickets)
+                DataBase.replaceValue(self, 'gems', newGems)
+            else:
+                newGems = self.player.gems - 80
+                DataBase.replaceValue(self, 'gems', newGems)
 
             self.writeVint(0)
             self.writeVint(0)
@@ -147,11 +152,16 @@ class ServerBox(Writer):
             self.writeVint(reward)
 
             if reward == 8:
-                newGems = self.player.gems + value
+                newGems = self.player.gems + value - 30
                 DataBase.replaceValue(self, 'gems', newGems)
             elif reward == 3:
                 newTickets = self.player.tickets + value
+                newGems = self.player.gems - 30
                 DataBase.replaceValue(self, 'tickets', newTickets)
+                DataBase.replaceValue(self, 'gems', newGems)
+            else:
+                newGems = self.player.gems - 30
+                DataBase.replaceValue(self, 'gems', newGems)
 
             self.writeVint(0)
             self.writeVint(0)
