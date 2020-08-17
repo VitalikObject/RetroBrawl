@@ -1,4 +1,5 @@
 from Utils.Writer import Writer
+from database.DataBase import DataBase
 
 
 class OwnHomeData(Writer):
@@ -32,9 +33,51 @@ class OwnHomeData(Writer):
         self.writeVint(9)
         self.writeVint(10)
 
-        self.writeVint(1)
+        self.writeVint(22)
         self.writeVint(29)
-        self.writeVint(self.player.skinID)
+        self.writeVint(self.player.shellySkin)
+        self.writeVint(29)
+        self.writeVint(self.player.nitaSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.coltSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.bullSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.jessieSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.brockSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.dynamikeSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.boSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.elprimoSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.barleySkin)
+        self.writeVint(29)
+        self.writeVint(self.player.pocoSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.ricoSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.darrylSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.pennySkin)
+        self.writeVint(29)
+        self.writeVint(self.player.piperSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.pamSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.frankSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.mortisSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.taraSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.spikeSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.crowSkin)
+        self.writeVint(29)
+        self.writeVint(self.player.leonSkin)
 
         self.writeVint(144)
         self.writeVint(29)
@@ -556,6 +599,7 @@ class OwnHomeData(Writer):
         if self.player.name is None:
             self.writeString("Guest") # player name
             self.writeVint(0)
+            DataBase.createAccount(self) # create new account
         else:
             self.writeString(self.player.name) # player name
             self.writeVint(1)
