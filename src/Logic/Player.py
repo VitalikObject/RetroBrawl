@@ -13,6 +13,8 @@ class Players:
 	tickets = 99999
 	name = None
 	profileIcon = 0
+	brawlBoxes = 99999
+	bigBoxes = 99999
 
 	def __init__(self, device):
 		self.device = device
