@@ -53,5 +53,26 @@ class EndClientTurn(BSMessageReader):
             if(self.player.roomID != 0):
             	GameroomData(self.client, self.player).send()
             print("Command ID", self.commandID, "has been handled")
+        if self.commandID == 521:
+            self.read_Vint()
+            self.read_Vint()
+            self.read_Vint()
+            self.read_Vint()
+            self.gold = self.read_Vint()
+            if self.gold == 0:
+                newGold = self.player.gold + 150
+                newGems = self.player.gems - 20
+                DataBase.replaceValue(self, 'gold', newGold)
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif self.gold == 1:
+                newGold = self.player.gold + 400
+                newGems = self.player.gems - 50
+                DataBase.replaceValue(self, 'gold', newGold)
+                DataBase.replaceValue(self, 'gems', newGems)
+            elif self.gold == 2:
+                newGold = self.player.gold + 1200
+                newGems = self.player.gems - 140
+                DataBase.replaceValue(self, 'gold', newGold)
+                DataBase.replaceValue(self, 'gems', newGems)
         elif self.commandID >= 0: 
             print("Command ID", self.commandID, "don\'t handled!")
