@@ -6,7 +6,7 @@ from Utils.Helpers import Helpers
 class DataBase:
 
     def loadAccount(self):
-        with open('data.txt', 'r') as read_data:
+        with open('data.db', 'r') as read_data:
             for line in read_data.readlines():
 
                 json_data = json.loads(line)
@@ -33,14 +33,14 @@ class DataBase:
             }
         }
 
-        with open('data.txt', 'a+') as data_file:
+        with open('data.db', 'a+') as data_file:
             json.dump(data, data_file)  # writing data for new account
             data_file.write('\n')  # writing a new line
 
 
 
     def replaceValue(self, value_name, new_value):
-        with open('data.txt', 'r+') as file:
+        with open('data.db', 'r+') as file:
             list = []
 
             for line in file.readlines():
@@ -51,7 +51,7 @@ class DataBase:
                 list.append(dict)
                 file.close()
 
-        with open('data.txt', 'w') as o:
+        with open('data.db', 'w') as o:
             for i in list:
                 o.write(str(i).replace("'", '"') + '\n')
             o.close()
