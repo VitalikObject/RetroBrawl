@@ -1,14 +1,15 @@
 from Utils.Reader import BSMessageReader
-from Packets.Messages.Server.ServerBox  import ServerBox
-from Packets.Messages.Server.GameroomData  import GameroomData
+from Packets.Messages.Server.ServerBox import ServerBox
+from Packets.Messages.Server.GameroomData import GameroomData
 from database.DataBase import DataBase
+
 
 class EndClientTurn(BSMessageReader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.client = client
-        self.player= player
-        
+        self.player = player
+
     def decode(self):
         self.read_Vint()
         self.read_Vint()
@@ -48,6 +49,7 @@ class EndClientTurn(BSMessageReader):
             self.read_Vint()
             self.read_Vint()
             self.player.brawlerID = self.read_Vint()
+            DataBase.replaceValue(self, 'skinID', self.player.skinID)
             if self.player.brawlerID == 0:
                 DataBase.replaceValue(self, 'shellySkin', self.player.skinID)
             elif self.player.brawlerID == 1:
@@ -93,8 +95,8 @@ class EndClientTurn(BSMessageReader):
             elif self.player.brawlerID == 23:
                 DataBase.replaceValue(self, 'leonSkin', self.player.skinID)
             DataBase.replaceValue(self, 'brawlerID', self.player.brawlerID)
-            if(self.player.roomID != 0):
-            	GameroomData(self.client, self.player).send()
+            if (self.player.roomID != 0):
+                GameroomData(self.client, self.player).send()
             print("Command ID", self.commandID, "has been handled")
         if self.commandID == 521:
             self.read_Vint()
@@ -116,10 +118,9 @@ class EndClientTurn(BSMessageReader):
                 newGold = self.player.gold + 1200
                 newGems = self.player.gems - 140
                 DataBase.replaceValue(self, 'gold', newGold)
-                DataBase.replaceValue(self, 'gems', newGems)               
+                DataBase.replaceValue(self, 'gems', newGems)
         if self.commandID == 509:
             newGems = self.player.gems - 50
             DataBase.replaceValue(self, 'gems', newGems)
-
-        elif self.commandID >= 0: 
+        elif self.commandID >= 0:
             print("Command ID", self.commandID, "don\'t handled!")
