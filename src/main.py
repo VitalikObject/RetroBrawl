@@ -83,6 +83,9 @@ class ClientThread(Thread):
 		except ConnectionResetError:
 			print(f"[INFO] Ip: {self.address[0]} disconnected!")
 			self.client.close()
+		except TimeoutError:
+			print(f"[INFO] Ip: {self.address[0]} disconnected!")
+			self.client.close()
 
 
 if __name__ == '__main__':
