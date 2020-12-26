@@ -10,7 +10,7 @@ class Battle2Result(Writer):
 
     def encode(self):
         self.writeVint(1)
-        self.writeVint(self.player.Rank)
+        self.writeVint(self.player.GameType)
         self.writeVint(0)
         self.writeVint(0)
         self.writeVint(0)
