@@ -1,55 +1,63 @@
 import json
 import string
 import random
+from tinydb import TinyDB, Query
 from Utils.Helpers import Helpers
 
 class DataBase:
 
+
+
     def loadAccount(self):
-        with open('data.db', 'r') as read_data:
-            for line in read_data.readlines():
+        db = TinyDB('data.db')
+        query = Query()
+        user_data = db.search(query.token == str(self.player.Token))
+        if user_data:
+            self.player.name = user_data[0]["info"]["name"]
+            self.player.gems = user_data[0]["info"]["gems"]
+            self.player.gold = user_data[0]["info"]["gold"]
+            self.player.tickets = user_data[0]["info"]["tickets"]
+            self.player.brawlerID = user_data[0]["info"]["brawlerID"]
+            self.player.skinID = user_data[0]["info"]["skinID"]
+            self.player.trophies = user_data[0]["info"]["trophies"]
+            self.player.profileIcon = user_data[0]["info"]["profileIcon"]
+            self.player.brawlBoxes = user_data[0]["info"]["brawlBoxes"]
+            self.player.bigBoxes = user_data[0]["info"]["bigBoxes"]
+            self.player.shellySkin = user_data[0]["info"]["shellySkin"]
+            self.player.nitaSkin = user_data[0]["info"]["nitaSkin"]
+            self.player.coltSkin = user_data[0]["info"]["coltSkin"]
+            self.player.bullSkin = user_data[0]["info"]["bullSkin"]
+            self.player.jessieSkin = user_data[0]["info"]["jessieSkin"]
+            self.player.brockSkin = user_data[0]["info"]["brockSkin"]
+            self.player.dynamikeSkin = user_data[0]["info"]["dynamikeSkin"]
+            self.player.boSkin = user_data[0]["info"]["boSkin"]
+            self.player.elprimoSkin = user_data[0]["info"]["elprimoSkin"]
+            self.player.barleySkin = user_data[0]["info"]["barleySkin"]
+            self.player.pocoSkin = user_data[0]["info"]["pocoSkin"]
+            self.player.ricoSkin = user_data[0]["info"]["ricoSkin"]
+            self.player.darrylSkin = user_data[0]["info"]["darrylSkin"]
+            self.player.pennySkin = user_data[0]["info"]["pennySkin"]
+            self.player.piperSkin = user_data[0]["info"]["piperSkin"]
+            self.player.pamSkin = user_data[0]["info"]["pamSkin"]
+            self.player.frankSkin = user_data[0]["info"]["frankSkin"]
+            self.player.mortisSkin = user_data[0]["info"]["mortisSkin"]
+            self.player.taraSkin = user_data[0]["info"]["taraSkin"]
+            self.player.spikeSkin = user_data[0]["info"]["spikeSkin"]
+            self.player.crowSkin = user_data[0]["info"]["crowSkin"]
+            self.player.leonSkin = user_data[0]["info"]["leonSkin"]
 
-                json_data = json.loads(line)
-                dict = json.loads(json.dumps(json_data))  # loading and dumping json data from file
 
-                if self.player.Token in dict:
-                    self.player.name = dict[str(self.player.Token)]["name"]
-                    self.player.gems = dict[str(self.player.Token)]["gems"]
-                    self.player.gold = dict[str(self.player.Token)]["gold"]
-                    self.player.tickets = dict[str(self.player.Token)]["tickets"]
-                    self.player.brawlerID = dict[str(self.player.Token)]["brawlerID"]
-                    self.player.skinID = dict[str(self.player.Token)]["skinID"]
-                    self.player.trophies = dict[str(self.player.Token)]["trophies"]
-                    self.player.profileIcon = dict[str(self.player.Token)]["profileIcon"]
-                    self.player.brawlBoxes = dict[str(self.player.Token)]["brawlBoxes"]
-                    self.player.bigBoxes = dict[str(self.player.Token)]["bigBoxes"]
-                    self.player.shellySkin = dict[str(self.player.Token)]["shellySkin"]
-                    self.player.nitaSkin = dict[str(self.player.Token)]["nitaSkin"]
-                    self.player.coltSkin = dict[str(self.player.Token)]["coltSkin"]
-                    self.player.bullSkin = dict[str(self.player.Token)]["bullSkin"]
-                    self.player.jessieSkin = dict[str(self.player.Token)]["jessieSkin"]
-                    self.player.brockSkin = dict[str(self.player.Token)]["brockSkin"]
-                    self.player.dynamikeSkin = dict[str(self.player.Token)]["dynamikeSkin"]
-                    self.player.boSkin = dict[str(self.player.Token)]["boSkin"]
-                    self.player.elprimoSkin = dict[str(self.player.Token)]["elprimoSkin"]
-                    self.player.barleySkin = dict[str(self.player.Token)]["barleySkin"]
-                    self.player.pocoSkin = dict[str(self.player.Token)]["pocoSkin"]
-                    self.player.ricoSkin = dict[str(self.player.Token)]["ricoSkin"]
-                    self.player.darrylSkin = dict[str(self.player.Token)]["darrylSkin"]
-                    self.player.pennySkin = dict[str(self.player.Token)]["pennySkin"]
-                    self.player.piperSkin = dict[str(self.player.Token)]["piperSkin"]
-                    self.player.pamSkin = dict[str(self.player.Token)]["pamSkin"]
-                    self.player.frankSkin = dict[str(self.player.Token)]["frankSkin"]
-                    self.player.mortisSkin = dict[str(self.player.Token)]["mortisSkin"]
-                    self.player.taraSkin = dict[str(self.player.Token)]["taraSkin"]
-                    self.player.spikeSkin = dict[str(self.player.Token)]["spikeSkin"]
-                    self.player.crowSkin = dict[str(self.player.Token)]["crowSkin"]
-                    self.player.leonSkin = dict[str(self.player.Token)]["leonSkin"]
+
 
     def createAccount(self):
-        data = {
-            self.player.Token: {
 
+        db = TinyDB('data.db')
+
+        data = {
+            "token": str(self.player.Token),
+
+            "info":
+                {
                 "name": self.player.name,
                 "gems": 99999,
                 "gold": 99999,
@@ -82,36 +90,21 @@ class DataBase:
                 "spikeSkin": 0,
                 "crowSkin": 0,
                 "leonSkin": 0
-            }
+
+                }
+
         }
 
-        with open('data.db', 'a+') as data_file:
-            json.dump(data, data_file)  # writing data for new account
-            data_file.write('\n')  # writing a new line
+        db.insert(data)
+
+
 
 
 
     def replaceValue(self, value_name, new_value):
-        with open('data.db', 'r+') as file:
-            list = []
-
-            for line in file.readlines():
-                json_data = json.loads(line)
-                dict = json.loads(json.dumps(json_data))  # loading and dumping json data from file
-                if self.player.Token in dict:
-                    dict[str(self.player.Token)][str(value_name)] = new_value
-                list.append(dict)
-                file.close()
-
-        with open('data.db', 'w') as o:
-            for i in list:
-                o.write(str(i).replace("'", '"') + '\n')
-            o.close()
-
-
-
-
-        # example usage: replaceValue(self, 'gems', 7777)
-
-
-
+        db = TinyDB('data.db')
+        query = Query()
+        data = db.search(query.token == str(self.player.Token))
+        user_data = data[0]
+        user_data["info"][str(value_name)] = new_value
+        db.update(user_data, query.token == str(self.player.Token))

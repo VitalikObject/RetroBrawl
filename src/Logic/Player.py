@@ -38,6 +38,24 @@ class Players:
 	spikeSkin = 0
 	crowSkin = 0
 	leonSkin = 0
+	GameType = 0
+	Rank = 0
+	Team = 0
+	Bot1 = 0
+	Bot1N = None
+	Bot2 = 0
+	Bot2N = None
+	Bot3 = 0
+	Bot3N = None
+	Bot4 = 0
+	Bot4N = None
+	Bot5 = 0
+	Bot5N = None
+	Bot1Skin = 0
+	Bot2Skin = 0
+	Bot3Skin = 0
+	Bot4Skin = 0
+	Bot5Skin = 0
 
 	def __init__(self, device):
 		self.device = device

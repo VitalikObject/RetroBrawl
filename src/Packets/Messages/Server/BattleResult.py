@@ -10,11 +10,14 @@ class BattleResult(Writer):
 
     def encode(self):
         self.writeVint(2)
+        self.writeVint(self.player.GameType)
+        self.writeVint(0)
+        self.writeVint(0)
+        self.writeVint(0)
+        self.writeVint(0)
+        self.writeVint(0)
+        self.writeVint(32)
         self.writeVint(1)
-        self.writeVint(0)
-        self.writeVint(0)
-        self.writeVint(0)
-        self.writeInt(8193)
         self.writeString(self.player.name)
         self.writeVint(1)
         self.writeVint(16)
