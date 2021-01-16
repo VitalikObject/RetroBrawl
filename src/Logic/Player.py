@@ -3,6 +3,8 @@ class Players:
 	HighID = 0
 	LowID = 0
 	Token = None
+	ClubID = 0
+	ClubRole = 0
 	boxID = 0
 	mapID = 7
 	roomID = 0

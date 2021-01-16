@@ -2,6 +2,7 @@ from random import choice
 from string import ascii_uppercase
 import json
 
+from database.DataBase import DataBase
 from Logic.Player import Players
 from Packets.Messages.Server.ClubProfileMessage import ClubProfileMessage
 
@@ -15,7 +16,8 @@ class AskClubData(BSMessageReader):
         self.client = client
 
     def decode(self):
-        pass
+        self.clubHighID = self.read_int()
+        self.clubLowID = self.read_int()
 
     def process(self):
-        ClubProfileMessage(self.client, self.player).send()
+        ClubProfileMessage(self.client, self.player, self.clubLowID).send()

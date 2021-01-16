@@ -9,8 +9,8 @@ class PlayerProfile(Writer):
         self.player = player
 
     def encode(self):
-        self.writeInt(3182494701)
-        self.writeInt(2935259141)
+        self.writeVint(0)
+        self.writeVint(self.player.LowID)
         self.writeString(self.player.name)
         self.writeVint(0)
         self.writeVint(1)

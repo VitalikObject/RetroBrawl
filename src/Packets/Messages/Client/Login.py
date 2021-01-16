@@ -33,11 +33,11 @@ class Login(BSMessageReader):
             LoginOk(self.client, self.player).send()
             DataBase.loadAccount(self) # load account
             OwnHomeData(self.client, self.player).send()
-            ClubInfoMessage(self.client, self.player).send()
+            ClubInfoMessage(self.client, self.player, self.player.ClubID).send()
         else:
-            self.player.LowID = 1
+            self.player.LowID = Helpers.randomLowID(self)
             self.player.HighID = 0
             self.player.Token = Helpers.randomStringDigits(self)
             LoginOk(self.client, self.player).send()
             OwnHomeData(self.client, self.player).send()
-            ClubInfoMessage(self.client, self.player).send()
+            ClubInfoMessage(self.client, self.player, 0).send()

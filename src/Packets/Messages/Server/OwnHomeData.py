@@ -585,16 +585,21 @@ class OwnHomeData(Writer):
         self.writeVint(1)
         self.writeVint(0)
         self.writeVint(0)
-        self.writeInt(27773)
-        self.writeInt(2819525549)
+
+        self.writeInt(0)
+        self.writeInt(1)
+
         self.writeVint(0)
         self.writeVint(-1)
         self.writeVint(0)
         self.writeVint(0)
-        self.writeInt(3182494701)
-        self.writeInt(2935259141)
+
+        self.writeVint(0)
+        self.writeVint(self.player.LowID)
+
         self.writeVint(0)
         self.writeVint(0)
+
         self.writeVint(0)
         self.writeVint(0)
         if self.player.name is None:
