@@ -6,6 +6,7 @@ from Packets.Messages.Client.Exit import Exit
 from Packets.Messages.Client.QuitRoom import QuitRoom
 from Packets.Messages.Client.AskProfile import AskProfile
 from Packets.Messages.Client.OpenClubMessage import OpenClubMessage
+from Packets.Messages.Client.AskClubDataMessage import AskClubData
 from Packets.Messages.Client.ChangeMap import ChangeMap
 from Packets.Messages.Client.AnalyticsEvent import AnalyticsEvent
 from Packets.Messages.Client.BattleEnd import BattleEnd
@@ -23,6 +24,7 @@ packets = {
     14109: Exit,
     14110: BattleEnd,
     14113: AskProfile,
+    14302: AskClubData,
     14303: OpenClubMessage,
     14350: CreateGameroom,
     14353: QuitRoom,
